@@ -13,8 +13,6 @@ type PeopleProps =
 
 const People = (props: PeopleProps) => {
 
-//class People extends React.PureComponent<PeopleProps> {
-
     const [username, setUsername] = useState('');
     const [valid, setValid] = useState(false);
 
@@ -67,7 +65,6 @@ const People = (props: PeopleProps) => {
         )
     }
 
-  //public render() {
     return (
       <React.Fragment>
         <h1 id="tabelLabel">People</h1>
@@ -76,12 +73,11 @@ const People = (props: PeopleProps) => {
         {renderForm()}
       </React.Fragment>
     )
-  //}
-
-    
 }
 
+const mapStateToProps = (state: ApplicationState) => state.people;
+
 export default connect(
-  (state: ApplicationState) => state.people, // Selects which state properties are merged into the component's props
+  mapStateToProps, // Selects which state properties are merged into the component's props
   PeopleStore.actionCreators // Selects which action creators are merged into the component's props
 )(People as any); // eslint-disable-line @typescript-eslint/no-explicit-any
