@@ -19,7 +19,6 @@ class FetchData extends React.PureComponent<WeatherForecastProps> {
   }
 
   // This method is called when the route parameters change
-
   public componentDidUpdate() {
     this.ensureDataFetched();
   }
